@@ -1,8 +1,8 @@
-package com.ronving;
+package com.ronving.controllers;
 
 
 import com.ronving.domain.Message;
-import com.ronving.repositories.MessageRepo;
+import com.ronving.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,19 +15,18 @@ import java.util.Map;
 public class GreetingController {
 
     @Autowired
-    private MessageRepo messageRepo;
+    private MessageRepository messageRepo;
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required = false, defaultValue = "Bro") String name, Map<String, Object> model) {
-        model.put("name", name);
-        return "greeting";
+    @GetMapping("/")
+    public String greeting(Map<String, Object> model) {
+        return "home";
     }
 
     @GetMapping("/main")
     public String home(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages", messages);
-        return "home";
+        return "main";
     }
 
     @PostMapping("/main")
@@ -36,7 +35,7 @@ public class GreetingController {
         messageRepo.save(message);
         Iterable<Message> messages = messageRepo.findAll();
         model.put("messages", messages);
-        return "home";
+        return "main";
     }
 
 }

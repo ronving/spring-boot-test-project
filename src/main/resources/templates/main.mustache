@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
+        <form method="post">
+            <input type="text" name="text" placeholder="Enter a message..."/>
+            <input type="text" name="tag" placeholder="Enter a tag..."/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div>List of Messages</div>
+    {{#messages}}
+        <table width="30%" border="1">
+            <tr>
+                <td width="33%">{{id}}</td>
+                <td width="33%">{{text}}</td>
+                <td width="33%">{{tag}}</td>
+            </tr>
+        </table>
+    {{/messages}}
+</body>
+</html>
