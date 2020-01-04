@@ -1,8 +1,8 @@
-package com.ronving.controllers;
+package com.ronving.controller;
 
 
 import com.ronving.domain.Message;
-import com.ronving.repositories.MessageRepository;
+import com.ronving.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
 
     @Autowired
     private MessageRepository messageRepo;

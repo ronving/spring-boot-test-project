@@ -1,4 +1,4 @@
-package com.ronving.repositories;
+package com.ronving.repository;
 
 import com.ronving.domain.Message;
 import org.springframework.data.repository.CrudRepository;
